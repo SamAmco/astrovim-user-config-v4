@@ -57,16 +57,6 @@ return {
           function() require("astrocore.buffer").close() end,
           desc = "Close Window",
         },
-
-        -- mappings seen under group name "Buffer"
-        ["<Leader>bD"] = {
-          function()
-            require("astronvim.utils.status").heirline.buffer_picker(
-              function(bufnr) require("astrocore.buffer").close(bufnr) end
-            )
-          end,
-          desc = "Pick to close",
-        },
         -- tables with the `name` key will be registered with which-key if it's installed
         -- this is useful for naming menus
         ["<Leader>b"] = { name = "Buffers" },
