@@ -16,7 +16,8 @@
 -- })
 --
 
--- This shows all files in the
+-- This unmaps the annoying fuzzy finder logic of neo-tree and just falls back to
+-- a normal search
 require("neo-tree").setup({
 	filesystem = {
 		filtered_items = {

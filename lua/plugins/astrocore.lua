@@ -74,6 +74,12 @@ return {
           end,
           desc = "Open in neo tree",
         },
+        ["<leader>c"] = {
+          function()
+            require("plugins.local.close-last-window").close_last_window()
+          end,
+          desc = "Close last window",
+        },
         -- tables with the `name` key will be registered with which-key if it's installed
         -- this is useful for naming menus
         ["<Leader>b"] = { name = "Buffers" },
