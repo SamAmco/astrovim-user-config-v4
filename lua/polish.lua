@@ -18,15 +18,12 @@
 
 -- This unmaps the annoying fuzzy finder logic of neo-tree and just falls back to
 -- a normal search
-require("neo-tree").setup({
-	filesystem = {
-		filtered_items = {
-			visible = true,
-		},
-		window = {
-			mappings = {
-				["/"] = "",
-			},
-		},
-	},
-})
+require("neo-tree").setup {
+  filesystem = {
+    window = {
+      mappings = {
+        ["/"] = "",
+      },
+    },
+  },
+}
