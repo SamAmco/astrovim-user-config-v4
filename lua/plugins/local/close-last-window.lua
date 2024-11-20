@@ -1,6 +1,6 @@
 local M = {}
 
-function M.close_last_window()
+M.close_last_window = function()
   local all_wins = vim.api.nvim_list_wins()
   local current_win = vim.api.nvim_get_current_win()
   -- Get the last win in all wins list that isn't current_win or null
@@ -11,9 +11,7 @@ function M.close_last_window()
       break
     end
   end
-  if last_win == nil then
-    return
-  end
+  if last_win == nil then return end
   vim.api.nvim_win_close(last_win, true)
 end
 
