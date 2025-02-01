@@ -81,11 +81,33 @@ return {
       },
 
       t = {
-        ["kj"] = "<C-\\><C-n>"
+        ["kj"] = "<C-\\><C-n>",
       },
 
       i = {
         ["kj"] = "<Esc>",
+      },
+
+      -- Yeah they're all the same, it's annoying but yeah
+      o = {
+        ["ie"] = {
+          function() require("various-textobjs").entireBuffer() end,
+          desc = "Entire Buffer",
+        },
+        ["ae"] = {
+          function() require("various-textobjs").entireBuffer() end,
+          desc = "Entire Buffer",
+        },
+      },
+      x = {
+        ["ie"] = {
+          function() require("various-textobjs").entireBuffer() end,
+          desc = "Entire Buffer",
+        },
+        ["ae"] = {
+          function() require("various-textobjs").entireBuffer() end,
+          desc = "Entire Buffer",
+        },
       },
     },
   },
