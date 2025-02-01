@@ -53,6 +53,12 @@ return {
           function() require("astrocore.buffer").nav(-(vim.v.count > 0 and vim.v.count or 1)) end,
           desc = "Previous buffer",
         },
+        ["gt"] = {
+          function()
+            if vim.v.count > 0 then require("astrocore.buffer").nav_to(vim.v.count) end
+          end,
+          desc = "Go to buffer",
+        },
         ["<Leader>q"] = {
           function() require("astrocore.buffer").close() end,
           desc = "Close Window",
