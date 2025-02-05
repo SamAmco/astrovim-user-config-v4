@@ -47,17 +47,23 @@ return {
         cmd = { "kotlin-language-server" },
         filetypes = { "kotlin" },
         root_dir = function(fname)
-          return require("lspconfig.util").root_pattern("settings.gradle", "settings.gradle.kts", "build.gradle", "build.gradle.kts", ".git")(fname) or vim.fn.getcwd()
+          return require("lspconfig.util").root_pattern(
+            "settings.gradle",
+            "settings.gradle.kts",
+            "build.gradle",
+            "build.gradle.kts",
+            ".git"
+          )(fname) or vim.fn.getcwd()
         end,
         settings = {
           kotlin = {
             compiler = {
               jvm = {
-                target = "1.8"
-              }
-            }
-          }
-        }
+                target = "1.8",
+              },
+            },
+          },
+        },
       },
     },
     -- customize how language servers are attached

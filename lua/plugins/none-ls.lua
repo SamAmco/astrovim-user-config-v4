@@ -1,13 +1,48 @@
-if true then return {} end -- WARN: REMOVE THIS LINE TO ACTIVATE THIS FILE
-
 -- Customize None-ls sources
 
 ---@type LazySpec
+
+local setup_custom_ktlint = function()
+    local null_ls = require "null-ls"
+    local h = require "null-ls.helpers"
+    local methods = require "null-ls.methods"
+
+    local FORMATTING = methods.internal.FORMATTING
+
+    local custom_ktlint = h.make_builtin {
+      name = "Custom ktlint",
+      meta = {
+        url = "https://ktlint.github.io/",
+        description = "An anti-bikeshedding Kotlin linter with built-in formatter.",
+      },
+      method = FORMATTING,
+      filetypes = { "kotlin" },
+      generator_opts = {
+        command = "ktlint",
+        args = {
+          "--format",
+          "--stdin",
+          "--editorconfig=/Users/sam/Documents/deliveroo/.editorconfig",
+          "--log-level=none",
+          -- "**/*.kt",
+          -- "**/*.kts",
+        },
+        to_stdin = true,
+      },
+      factory = h.formatter_factory,
+    }
+
+    null_ls.register(custom_ktlint)
+    null_ls.setup({
+        debug = true,
+    })
+end
+
+
 return {
   "nvimtools/none-ls.nvim",
   opts = function(_, opts)
     -- opts variable is the default configuration table for the setup function call
-    -- local null_ls = require "null-ls"
 
     -- Check supported formatters and linters
     -- https://github.com/nvimtools/none-ls.nvim/tree/main/lua/null-ls/builtins/formatting
@@ -19,6 +54,9 @@ return {
       -- Set a formatter
       -- null_ls.builtins.formatting.stylua,
       -- null_ls.builtins.formatting.prettier,
+      -- null_ls.builtins.formatting.ktlint,
     })
+
+    -- setup_custom_ktlint()
   end,
 }
