@@ -5,12 +5,20 @@ return {
     dependencies = { "hrsh7th/cmp-emoji" },
     ---opts cmp.ConfigSchema
     opts = function(_, opts)
-      local cmp = require("cmp")
+      local cmp = require "cmp"
 
-      opts.mapping = cmp.mapping.preset.insert({
+      opts.mapping = cmp.mapping.preset.insert {
         ["<C-j>"] = cmp.mapping.select_next_item(),
         ["<C-k>"] = cmp.mapping.select_prev_item(),
-      })
+        ["<C-l>"] = cmp.mapping(function(fallback)
+          local luasnip = require "luasnip"
+          if luasnip.expand_or_jumpable() then
+            luasnip.expand_or_jump()
+          else
+            fallback()
+          end
+        end, { "i", "s" }),
+      }
 
       opts.preselect = cmp.PreselectMode.None
 
