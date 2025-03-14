@@ -10,6 +10,10 @@ return {
         panel = {
           enabled = true,
           auto_refresh = true,
+          layout = {
+            position = "right",
+            ratio = 0.3,
+          }
         },
         suggestion = {
           enabled = true,

@@ -79,6 +79,12 @@ return {
           desc = "Close last window",
         },
         ["<Leader>a"] = { desc = "AI Tools" },
+        ["<Leader>at"] = {
+          desc = "CopilotChat",
+          function()
+            require("CopilotChat").toggle()
+          end
+        },
         -- tables with the `name` key will be registered with which-key if it's installed
         -- this is useful for naming menus
         ["<Leader>b"] = { name = "Buffers" },

@@ -14,6 +14,15 @@ return {
             end
           end,
         },
+        ["<C-k>"] = {
+          c = function(fallback)
+            if cmp.visible() then
+              cmp.select_prev_item()
+            else
+              fallback()
+            end
+          end,
+        },
       }),
       sources = cmp.config.sources({
         { name = "path" },
