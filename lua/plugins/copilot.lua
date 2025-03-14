@@ -6,7 +6,7 @@ return {
     build = ":Copilot auth",
     event = "InsertEnter",
     config = function()
-      require("copilot").setup({
+      require("copilot").setup {
         panel = {
           enabled = true,
           auto_refresh = true,
@@ -17,12 +17,15 @@ return {
           accept = true,
           keymap = {
             accept = "<Tab>",
+            next = "<C-]>",
+            prev = "<C-[>",
+            dismiss = "<C-d>",
           },
         },
         filetypes = {
           markdown = true,
         },
-      })
+      }
     end,
   },
 }
