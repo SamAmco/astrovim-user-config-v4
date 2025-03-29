@@ -10,7 +10,7 @@ return {
       -- See Configuration section for options
       mappings = {
         accept_diff = {
-          normal = "A",
+          normal = "<C-a>",
           insert = ""
         },
         reset = {

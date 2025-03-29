@@ -1,3 +1,5 @@
+-- if true then return {} end
+
 return {
   -- custom config which piggybacks on the copilot extras in lazy.lua.
   {
@@ -28,6 +30,9 @@ return {
         },
         filetypes = {
           markdown = true,
+          gitcommit = true,
+          gitrebase = true,
+          yaml = true,
         },
       }
     end,

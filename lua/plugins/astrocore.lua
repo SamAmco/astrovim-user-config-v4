@@ -80,9 +80,15 @@ return {
         },
         ["<Leader>a"] = { desc = "AI Tools" },
         ["<Leader>at"] = {
-          desc = "CopilotChat",
+          desc = "Copilot chat",
           function()
             require("CopilotChat").toggle()
+          end
+        },
+        ["<Leader>aa"] = {
+          desc = "Copilot explain selected",
+          function()
+            vim.api.nvim_command("CopilotChatExplain")
           end
         },
         -- tables with the `name` key will be registered with which-key if it's installed
@@ -90,6 +96,15 @@ return {
         ["<Leader>b"] = { name = "Buffers" },
         -- quick save
         -- ["<C-s>"] = { ":w!<cr>", desc = "Save File" },  -- change description but the same command
+      },
+
+      v = {
+        ["<Leader>aa"] = {
+          desc = "Copilot explain selected",
+          function()
+            vim.api.nvim_command("CopilotChatExplain")
+          end
+        },
       },
 
       t = {

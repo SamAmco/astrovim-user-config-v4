@@ -23,6 +23,8 @@ require("neo-tree").setup {
     window = {
       mappings = {
         ["/"] = "",
+        ["z"] = "",
+        ["zM"] = "close_all_nodes",
       },
     },
   },
