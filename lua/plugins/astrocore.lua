@@ -91,6 +91,12 @@ return {
             vim.api.nvim_command("CopilotChatExplain")
           end
         },
+        ["<Leader>ac"] = {
+          desc = "Add current file to Copilot chat",
+          function()
+            require("plugins.local.copilot-add-context-to-chat").add_current_file_to_chat()
+          end
+        },
         -- tables with the `name` key will be registered with which-key if it's installed
         -- this is useful for naming menus
         ["<Leader>b"] = { name = "Buffers" },
