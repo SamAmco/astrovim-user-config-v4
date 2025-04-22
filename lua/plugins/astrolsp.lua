@@ -65,19 +65,19 @@ return {
           },
         },
       },
-      lua_ls = {
-        settings = {
-          Lua = {
-            workspace = {
-              library = {
-                vim.fn.expand "$VIMRUNTIME/lua", -- Existing Neovim runtime
-                vim.fn.expand "~/Documents/git-repos/track-and-graph/lua/src", -- Custom project
-                vim.fn.expand "~/Documents/git-repos/track-and-graph/lua/test", -- Custom project
-              },
-            },
-          },
-        },
-      },
+      -- lua_ls = {
+      --   settings = {
+      --     Lua = {
+      --       workspace = {
+      --         library = {
+      --           vim.fn.expand "$VIMRUNTIME/lua", -- Existing Neovim runtime
+      --           vim.fn.expand "~/Documents/git-repos/track-and-graph/lua/src", -- Custom project
+      --           vim.fn.expand "~/Documents/git-repos/track-and-graph/lua/test", -- Custom project
+      --         },
+      --       },
+      --     },
+      --   },
+      -- },
     },
     -- customize how language servers are attached
     handlers = {
