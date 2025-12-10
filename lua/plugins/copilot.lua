@@ -23,6 +23,8 @@ return {
           accept = true,
           keymap = {
             accept = "<Tab>",
+            accept_word = "<C-l>",
+            accept_line = "<C-f>",
             next = "<C-]>",
             prev = "<C-[>",
             dismiss = "<C-d>",
