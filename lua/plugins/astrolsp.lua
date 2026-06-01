@@ -39,22 +39,20 @@ return {
     servers = {
       -- "pyright"
     },
-    -- customize language server configuration options passed to `lspconfig`
-    ---@diagnostic disable: missing-fields
+    -- customize language server configuration passed to `vim.lsp.config`
+    -- client specific configuration can also go in `lsp/` in your configuration root (see `:h lsp-config`)
     config = {
-      -- clangd = { capabilities = { offsetEncoding = "utf-8" } },
+      -- ["*"] = { capabilities = {} }, -- modify default LSP client settings such as capabilities
       kotlin_language_server = {
         cmd = { "kotlin-language-server" },
         filetypes = { "kotlin" },
-        root_dir = function(fname)
-          return require("lspconfig.util").root_pattern(
-            "settings.gradle",
-            "settings.gradle.kts",
-            "build.gradle",
-            "build.gradle.kts",
-            ".git"
-          )(fname) or vim.fn.getcwd()
-        end,
+        root_markers = {
+          "settings.gradle",
+          "settings.gradle.kts",
+          "build.gradle",
+          "build.gradle.kts",
+          ".git",
+        },
         settings = {
           kotlin = {
             compiler = {
@@ -123,7 +121,7 @@ return {
           function() require("astrolsp.toggles").buffer_semantic_tokens() end,
           desc = "Toggle LSP semantic highlight (buffer)",
           cond = function(client)
-            return client.supports_method "textDocument/semanticTokens/full" and vim.lsp.semantic_tokens ~= nil
+            return client:supports_method "textDocument/semanticTokens/full" and vim.lsp.semantic_tokens ~= nil
           end,
         },
       },

@@ -1,4 +1,4 @@
--- Customize None-ls sources
+if true then return {} end
 
 ---@type LazySpec
 
